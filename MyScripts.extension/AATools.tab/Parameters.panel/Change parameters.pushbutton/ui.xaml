@@ -1,0 +1,31 @@
+<!-- ui.xaml -->
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Parameter Editor" Height="400" Width="450"
+        WindowStartupLocation="CenterScreen" Topmost="True"
+        ResizeMode="CanResizeWithGrip">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- This button's Click name MUST match a function in the Python class -->
+        <Button x:Name="refresh_button" Grid.Row="0"
+                Content="Get/Refresh Parameters From Selection"
+                Margin="0,0,0,10"
+                Click="refresh_all_dropdowns_click"/>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel x:Name="parameter_rows_panel">
+                <!-- Parameter rows will be added here by the Python script -->
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button x:Name="apply_button" Content="Apply" Width="80" Margin="0,0,10,0" IsDefault="True" Click="apply_parameters_click"/>
+            <Button x:Name="clear_button" Content="Clear Unlocked" Width="110" Click="clear_textboxes_click"/>
+        </StackPanel>
+    </Grid>
+</Window>
